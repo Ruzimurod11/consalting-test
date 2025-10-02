@@ -104,7 +104,7 @@ export default function Index() {
             <div className="max-w-6xl mx-auto px-4">
                 <div className="p-6 rounded-[30px] border border-[#484D4E]">
                     {/* Green badge */}
-                    <div className="inline-block px-4 py-1 mb-3 text-[28px] font-[Montserrat] leading-[120%] font-medium text-[#81FE95] border border-[#81FE95] rounded-full">
+                    <div className="inline-block px-4 py-1 mb-3 text-xl md:text-[28px] font-[Montserrat] leading-[120%] font-medium text-[#81FE95] border border-[#81FE95] rounded-full">
                         гарантия возврата 30 дней
                     </div>
 
