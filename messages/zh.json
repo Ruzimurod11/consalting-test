@@ -1,0 +1,8 @@
+{
+    "Manifest": {
+        "name": "next-intl 示例"
+    },
+    "HomePage": {
+        "title": "你好，世界！"
+    }
+}

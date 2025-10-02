@@ -1,0 +1,8 @@
+{
+    "Manifest": {
+        "name": "пример next-intl"
+    },
+    "HomePage": {
+        "title": "Привет, мир!"
+    }
+}

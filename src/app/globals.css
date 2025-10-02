@@ -1,0 +1,33 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "tailwind-clamp" {
+    minsize: 25rem;
+    maxsize: 80rem;
+}
+@plugin "tailwindcss-motion";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --breakpoint-xsm: 479px;
+    --text-tiny: 0.625rem;
+    --text-tiny--line-height: 0.625rem;
+}
+
+@layer utilities {
+    @keyframes blink {
+        0%,
+        50%,
+        100% {
+            opacity: 1;
+        }
+        25%,
+        75% {
+            opacity: 0;
+        }
+    }
+    .animate-blink {
+        animation: blink 1s infinite;
+    }
+}
