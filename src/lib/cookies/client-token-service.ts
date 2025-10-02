@@ -1,49 +1,31 @@
-import {
-    deleteCookie,
-    getCookie,
-    OptionsType,
-    setCookie,
-} from "cookies-next/client"
-import { COOKIES } from "../constants/cookies"
-
-// Cookie configuration for better security
-const cookieOptions: OptionsType = {
-    secure: process.env.NODE_ENV === "production", // Only transmitted over HTTPS
-    sameSite: "strict" as const, // Protect against CSRF
-    path: "/", // Available across the site
-}
+const ACCESS_TOKEN_KEY = "ACCESS_TOKEN"
+const REFRESH_TOKEN_KEY = "REFRESH_TOKEN"
 
 export const ClientTokenService = {
     // Access Token methods
-    getAccessToken: (): string | undefined => {
-        return getCookie(COOKIES.ACCESS_TOKEN) as string | undefined
+    getAccessToken: (): string | null => {
+        return localStorage.getItem(ACCESS_TOKEN_KEY)
     },
 
     setAccessToken: (token: string): void => {
-        setCookie(COOKIES.ACCESS_TOKEN, token, {
-            ...cookieOptions,
-            maxAge: 30 * 24 * 60 * 60, // 30 days in seconds
-        })
+        localStorage.setItem(ACCESS_TOKEN_KEY, token)
     },
 
     removeAccessToken: (): void => {
-        deleteCookie(COOKIES.ACCESS_TOKEN, { path: "/" })
+        localStorage.removeItem(ACCESS_TOKEN_KEY)
     },
 
     // Refresh Token methods
-    getRefreshToken: (): string | undefined => {
-        return getCookie(COOKIES.REFRESH_TOKEN) as string | undefined
+    getRefreshToken: (): string | null => {
+        return localStorage.getItem(REFRESH_TOKEN_KEY)
     },
 
     setRefreshToken: (token: string): void => {
-        setCookie(COOKIES.REFRESH_TOKEN, token, {
-            ...cookieOptions,
-            maxAge: 30 * 24 * 60 * 60, // 30 days in seconds
-        })
+        localStorage.setItem(REFRESH_TOKEN_KEY, token)
     },
 
     removeRefreshToken: (): void => {
-        deleteCookie(COOKIES.REFRESH_TOKEN, { path: "/" })
+        localStorage.removeItem(REFRESH_TOKEN_KEY)
     },
 
     // Utility methods
