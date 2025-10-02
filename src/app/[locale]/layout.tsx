@@ -16,8 +16,8 @@ const publicSans = Public_Sans({
 })
 
 export const metadata: Metadata = {
-    title: "iNEXLYNK",
-    description: "Developed by upgrow.uz",
+    title: "test",
+    description: "Developed by Doniev",
 }
 
 export function generateStaticParams() {
